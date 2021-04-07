@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class = 'container'>
+    <h1>Alunos</h1>
+    <a href='/form' class="btn-floating btn-large waves-effect waves-#26a69a teal lighten-1"><i class="material-icons">add</i></a> 
+    <table>
+        <thead>
+            <th>Id</th> 
+            <th>Nome</th>
+            <th>Curso</th>
+            <th>Opções</th>
+        </thead>
+        <for|aluno, index| of=data.results>
+            <tr>
+                <td>${aluno.id}</td>
+                <td>${aluno.nome}</td>
+                <td>${aluno.curso}</td>
+                <td>
+                    <a href="/form/${aluno.id}" class="btn-floating btn-small waves-effect waves-#26a69a teal lighten-1"><i class="material-icons">edition</i></a>
+                            |
+                    <a href="/alunos/delete/${aluno.id}" class="btn-floating btn-small waves-effect waves-#26a69a teal lighten-1"><i class="material-icons">delete</i></a>
+                </td>
+            </tr>
+        </for> 
+    </table> 
+    </div>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"/>
+      <for| message, index|of = data.error_message>
+      <script>M.toast({html: '${message}', 
+            classes: '#b71c1c red darken-4'
+      })</script> 
+      </for> 
+       <for| message, index|of = data.success_message>
+      <script>M.toast({html: '${message}',
+        classes: '#00c853 green accent-4'
+      })</script> 
+      </for>
+</body>
+</html>
